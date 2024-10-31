@@ -10,8 +10,6 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
-    println!("The secret number is {secret_number}");
-
     loop {
         println!("Please input your guess.");
 
@@ -31,10 +29,19 @@ fn main() {
             .read_line(&mut guess) // `&` denotes a reference to an existing variable
             .expect("Failed to read line");
 
+        // Not covered in the book, allow the user to exit game early
+        if guess.trim() == "quit" {
+            break
+        };
+
+
         // Convert the string input into an unsigned 32-bit int, erroring with a
         // message if parsing fails.
         // Redefining a variable with a new type is known as 'shadowing'
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         // Use curly bracket syntax to insert variables into strings
         println!("You guessed: {}", guess);
