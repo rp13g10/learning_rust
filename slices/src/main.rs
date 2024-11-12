@@ -36,7 +36,7 @@ fn main() {
     let word = the_cooler_first_word(&my_string_literal[..]);
 
     // And string literals directly, because they're already references
-    let word = the_cooler_first_word(my_string_literal)
+    let word = the_cooler_first_word(my_string_literal);
 }
 
 // Note: usize is essentially an integer which is exactly large enough to
