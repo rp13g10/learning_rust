@@ -15,11 +15,11 @@ fn main() {
     // It is important to note that this implementation loses the built-in
     // exhaustive checking of values provided by match. To achieve this, we
     // would need to include an else block
-    let mut count = 0;
-    // Coin enum was defined in the 'match_' module
-    if let Coin::Quarter(state) = coin {
-        println!("State quarter from {state:?}!");
-    } else {
-        count += 1;
-    }
+    // let mut count = 0;
+    // // Coin enum was defined in the 'match_' module
+    // if let Coin::Quarter(state) = coin {
+    //     println!("State quarter from {state:?}!");
+    // } else {
+    //     count += 1;
+    // }
 }
